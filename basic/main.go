@@ -4,6 +4,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/YunKyungho/learn-golang/basic/mymod"
 	// 위 같은 형식으로 import 하려면 프로젝트 root 디렉토리에서 아래 명령어를 실행한다.
@@ -11,22 +12,13 @@ import (
 )
 
 func main() {
-	runPrint()
 	defineVarAndConst()
+	callFunction()
+	callFunctionWithParameterAndReturn()
 }
 
 // 마찬가지로 main package를 찾고 그 내부의 main 함수를 찾아 실행시킨다.
 // 물론 컴파일이 아닌 package의 공유를 목적으로 코드를 작성한다면 굳이 main이 있을 필요는 없다.
-
-func runPrint() {
-	fmt.Println("Hello world!")
-	// func를 export 하려면 대문자로 작성해야한다.
-	// mymod.go 파일 참고
-	mymod.SayHello()
-	mymod.UsingSayBye()
-	// mymod.sayBye()
-	// 소문자로 시작하는 함수는 export 불가능하다.
-}
 
 func defineVarAndConst() {
 	const name string = "Kyungho"
@@ -47,5 +39,45 @@ func defineVarAndConst() {
 	// 실행 시점에 변수의 타입이 결정되는 python 같은 동적 타입 언어와는 엄연히 다르다.
 	// age = "28"
 	// 그 예로 golang에서는 위 처럼 변수의 타입을 바꾸는 코드 실행이 불가능하다.
+}
 
+func callFunction() {
+	fmt.Println("Hello world!")
+
+	mymod.SayHello()
+	// mymod.go 파일 참고
+	// func를 export 하려면 대문자로 작성해야한다.
+	// mymod.sayBye() -> 소문자로 시작하는 함수는 export 불가능하다.
+
+	mymod.UsingSayBye()
+	// modmod.go 파일 참고
+	// 다른 파일이어도 하나의 package로 묶을 수가 있다.
+}
+
+func callFunctionWithParameterAndReturn() {
+	sum_value := callReturnFunction(3, 5)
+	fmt.Println(sum_value)
+
+	length, upper_word := multipleReturnFunc("any word")
+	fmt.Println(length, upper_word)
+
+	manyParameterFunc("a", "b", "c", "d")
+}
+
+func callFunctionWithParameter(a int, b int) {
+	// 위 처럼 모든 인자에 type을 지정해도 되지만
+	// a와 b의 타입이 같다면 (a, b int) 처럼 지정하는 것도 가능하다.
+	fmt.Println(a + b)
+}
+
+func callReturnFunction(a, b int) int {
+	return a + b
+}
+
+func multipleReturnFunc(word string) (int, string) {
+	return len(word), strings.ToUpper(word)
+}
+
+func manyParameterFunc(words ...string) {
+	fmt.Println(words)
 }
