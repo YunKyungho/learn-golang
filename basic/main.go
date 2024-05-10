@@ -23,6 +23,7 @@ func runPrint() {
 	// func를 export 하려면 대문자로 작성해야한다.
 	// mymod.go 파일 참고
 	mymod.SayHello()
+	mymod.UsingSayBye()
 	// mymod.sayBye()
 	// 소문자로 시작하는 함수는 export 불가능하다.
 }
