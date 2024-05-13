@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/YunKyungho/learn-golang/basic/mymod"
+	"github.com/YunKyungho/learn-golang/varAndFunction/mymod"
 	// 위 같은 형식으로 import 하려면 프로젝트 root 디렉토리에서 아래 명령어를 실행한다.
 	// go mod init github.com/YunKyungho/learn-golang
 )
@@ -14,7 +14,7 @@ import (
 func main() {
 	defineVarAndConst()
 	callFunction()
-	callFunctionWithParameterAndReturn()
+	callFunctionVariousKind()
 }
 
 // 마찬가지로 main package를 찾고 그 내부의 main 함수를 찾아 실행시킨다.
@@ -54,23 +54,28 @@ func callFunction() {
 	// 다른 파일이어도 하나의 package로 묶을 수가 있다.
 }
 
-func callFunctionWithParameterAndReturn() {
-	sum_value := callReturnFunction(3, 5)
+func callFunctionVariousKind() {
+	parameterFunc(3, 5)
+
+	sum_value := returnFunc(3, 5)
 	fmt.Println(sum_value)
 
 	length, upper_word := multipleReturnFunc("any word")
 	fmt.Println(length, upper_word)
 
 	manyParameterFunc("a", "b", "c", "d")
+
+	length, upper_word = nakedFunc("another word")
+	fmt.Println(length, upper_word)
 }
 
-func callFunctionWithParameter(a int, b int) {
+func parameterFunc(a int, b int) {
 	// 위 처럼 모든 인자에 type을 지정해도 되지만
 	// a와 b의 타입이 같다면 (a, b int) 처럼 지정하는 것도 가능하다.
 	fmt.Println(a + b)
 }
 
-func callReturnFunction(a, b int) int {
+func returnFunc(a, b int) int {
 	return a + b
 }
 
@@ -80,4 +85,12 @@ func multipleReturnFunc(word string) (int, string) {
 
 func manyParameterFunc(words ...string) {
 	fmt.Println(words)
+}
+
+func nakedFunc(word string) (lenght int, uppercase string) {
+	// 반환할 변수를 미리 정의해 두었기에
+	lenght = len(word)
+	uppercase = strings.ToUpper(word)
+	return
+	// return에 변수를 따로 지정하지 않아도 된다.
 }
