@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/YunKyungho/learn-golang/except/accounts"
+	"github.com/YunKyungho/learn-golang/basic/except/accounts"
 	"log"
 )
 

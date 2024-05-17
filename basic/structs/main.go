@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/YunKyungho/learn-golang/structs/public"
+	"github.com/YunKyungho/learn-golang/basic/structs/public"
 )
 
 func main() {

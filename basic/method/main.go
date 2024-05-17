@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/YunKyungho/learn-golang/method/myStruct"
+	"github.com/YunKyungho/learn-golang/basic/method/myStruct"
 )
 
 func main() {

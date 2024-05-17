@@ -4,9 +4,8 @@ package main
 
 import (
 	"fmt"
+	mymod2 "github.com/YunKyungho/learn-golang/basic/varAndFunction/mymod"
 	"strings"
-
-	"github.com/YunKyungho/learn-golang/varAndFunction/mymod"
 	// 위 같은 형식으로 import 하려면 프로젝트 root 디렉토리에서 아래 명령어를 실행한다.
 	// go mod init github.com/YunKyungho/learn-golang
 )
@@ -44,12 +43,12 @@ func defineVarAndConst() {
 func callFunction() {
 	fmt.Println("Hello world!")
 
-	mymod.SayHello()
+	mymod2.SayHello()
 	// mymod.go 파일 참고
 	// func를 export 하려면 대문자로 작성해야한다.
 	// mymod.sayBye() -> 소문자로 시작하는 함수는 export 불가능하다.
 
-	mymod.UsingSayBye()
+	mymod2.UsingSayBye()
 	// modmod.go 파일 참고
 	// 다른 파일이어도 하나의 package로 묶을 수가 있다.
 }
