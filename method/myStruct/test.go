@@ -1,5 +1,7 @@
 package myStruct
 
+import "fmt"
+
 type Account struct {
 	owner   string
 	balance int
@@ -22,6 +24,22 @@ func (a *Account) Deposit(amount int) {
 
 }
 
+// Balance go에서의 getter
 func (a *Account) Balance() int {
 	return a.balance
+}
+
+// Owner go에서의 getter
+func (a *Account) Owner() string {
+	return a.owner
+}
+
+// String go에서의 magic method
+func (a *Account) String() string {
+	return fmt.Sprint(a.Owner(), "'s account.\nHas: ", a.Balance())
+	// fmt.Println(account) 실행 시 &{owner, balance} 형식으로 출력됬던 값이
+	// ygh's account.
+	// Has: 10
+	// 위 처럼 출력되는 것을 볼 수 있다.
+	// Println 함수 사용 시 전달 받은 struct의 String method를 자동으로 호출하는 듯 하다.
 }

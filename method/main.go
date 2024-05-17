@@ -9,4 +9,5 @@ func main() {
 	account := myStruct.NewAccount("ygh")
 	account.Deposit(10)
 	fmt.Println(account.Balance())
+	fmt.Println(account)
 }
