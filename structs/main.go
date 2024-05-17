@@ -29,6 +29,8 @@ func main() {
 	// useConstructorPs.anyString -> 오류 발생
 	// useConstructorPs.anyInt -> 오류 발생
 	// 위 방식으로 생성자를 사용하고 내부 변수에 접근하지 못하게 만든다.
+	// 근데 이렇게 private 하게 변수를 만들어서 안정성을 높였다고 했을 때 내부 변수의 값을 변경하려면 어떻게 해야 하는가?
+	// ->> method를 만들어서 활용해야 한다.
 }
 
 type restaurant struct {

@@ -15,4 +15,5 @@ type privateStruct struct {
 func PublicFunc(anyString string) *privateStruct {
 	ps := privateStruct{anyString: anyString, anyInt: 0}
 	return &ps
+	// 포인터를 return 하는 이유는 복사본을 반환하는 것 보다 효율적이기 때문이다.
 }
